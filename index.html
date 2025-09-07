@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venue Finder — Hero, Filters, Drawer & Venues</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- App JS -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ================= Hero ================= -->
+  <header class="hero">
+    <div class="hero__left">
+      <h1 class="hero__title">Northbrook Park</h1>
+      <p class="hero__location">Surrey</p>
+
+      <a href="#" class="btn-outline">Menu detail</a>
+
+      <div class="search">
+        <label for="venue-search" class="search__label">Search Venue:</label>
+        <input
+          type="text"
+          id="venue-search"
+          class="search__input"
+          placeholder="Type at least three lettersm"
+          aria-label="Search venue"
+        />
+      </div>
+    </div>
+
+    <div class="hero__right">
+      <!-- Replace with your image path -->
+      <img src="hero.jpg" alt="Outdoor wedding aisle with floral arch" />
+    </div>
+  </header>
+
+  <!-- ============== Filter Bar ============== -->
+  <section class="toolbar">
+    <div class="toolbar__inner">
+      <div class="toolbar__left">
+        <span class="toolbar__label">Sort by:</span>
+        <button class="select-inline" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span>Inspire Me</span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="toolbar__right">
+        <button class="link-icon" type="button" aria-controls="filter-drawer" aria-expanded="false">
+          <svg class="icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="9" cy="6" r="2" fill="currentColor"/>
+            <circle cx="15" cy="12" r="2" fill="currentColor"/>
+            <circle cx="7" cy="18" r="2" fill="currentColor"/>
+          </svg>
+          <span>Filters</span>
+        </button>
+
+        <button class="link-strong" type="button">
+          Clear all filters <span class="muted">(0)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stacked Venue Panels ===== -->
+  <section class="venue-panels">
+    <!-- Panel 1 -->
+    <div class="venue-box">
+      <div class="venue-box__grid">
+        <div class="venue-box__media">
+          <img src="images/pitzhanger.jpg" alt="Pitzhanger Manor & Gallery exterior">
+        </div>
+
+        <div class="venue-box__body">
+          <span class="badge">Featured Venues</span>
+          <h2 class="v-title">Pitzhanger Manor &amp; Gallery</h2>
+
+          <p class="v-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="10" r="2.6" fill="currentColor"/>
+            </svg>
+            London
+          </p>
+
+          <p class="v-desc">
+            Set in the picturesque grounds of Walpole Park, Pitzhanger Manor &amp; Gallery
+            offers the feel of a countryside escape in central London. If you are…
+          </p>
+
+          <div class="v-actions">
+            <a href="#" class="btn-outline">Key information</a>
+            <a href="#" class="btn-outline">View Venue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="venue-box">
+      <div class="venue-box__grid">
+        <div class="venue-box__media">
+          <img src="images/pitzhanger.jpg" alt="Pitzhanger Manor & Gallery exterior">
+        </div>
+
+        <div class="venue-box__body">
+          <span class="badge">Featured Venues</span>
+          <h2 class="v-title">Pitzhanger Manor &amp; Gallery</h2>
+
+          <p class="v-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="12" cy="10" r="2.6" fill="currentColor"/>
+            </svg>
+            London
+          </p>
+
+          <p class="v-desc">
+            Set in the picturesque grounds of Walpole Park, Pitzhanger Manor &amp; Gallery
+            offers the feel of a countryside escape in central London. If you are…
+          </p>
+
+          <div class="v-actions">
+            <a href="#" class="btn-outline">Key information</a>
+            <a href="#" class="btn-outline">View Venue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Filter Drawer (hidden by default) ===== -->
+  <div id="filter-drawer" class="fdrawer" aria-hidden="true">
+    <div class="fdrawer__backdrop" aria-hidden="true"></div>
+
+    <aside class="fdrawer__panel" role="dialog" aria-modal="true" aria-label="Filters">
+      <header class="fdrawer__head">
+        <div class="fdrawer__title">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="9" cy="6" r="2" fill="currentColor"/>
+            <circle cx="15" cy="12" r="2" fill="currentColor"/>
+            <circle cx="7" cy="18" r="2" fill="currentColor"/>
+          </svg>
+          <h3>Filter</h3>
+        </div>
+
+        <button class="fdrawer__close" type="button">Close</button>
+      </header>
+
+      <div class="fdrawer__actions">
+        <button class="btn-outline btn-block" type="button">Apply Filters (0)</button>
+        <a class="fdrawer__clear" href="#">Clear All (0)</a>
+      </div>
+
+      <!-- Category list -->
+      <nav class="fdrawer__list" aria-label="Filter categories">
+        <button class="fdrawer__item" data-panel="location" type="button">
+          <span>Location</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="fdrawer__item" data-panel="capacity" type="button">
+          <span>Capacity</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="fdrawer__item" data-panel="venue-type" type="button">
+          <span>Venue Type</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="fdrawer__item" data-panel="features" type="button">
+          <span>Features</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="fdrawer__item" data-panel="wedding-style" type="button">
+          <span>Wedding Style</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </nav>
+
+      <!-- ========= SUBPANELS ========= -->
+
+      <!-- LOCATION -->
+      <div class="fsub fsub--location" aria-hidden="true" data-panel="location">
+        <div class="fsub__bar">
+          <label class="fsub__checkbox">
+            <input type="checkbox" id="hide-nationwide">
+            <span>Hide nationwide suppliers</span>
+          </label>
+        </div>
+
+        <ul class="fsub__list" role="menu" aria-label="Regions">
+          <li><button class="fsub__row" role="menuitem" type="button"><span>East Midlands</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>East of England</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>London</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>North East</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>North West</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>South East</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>South West</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>West Midlands</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>Yorkshire &amp; Humberside</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>Northern Ireland</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="fsub__row" type="button"><span>Scotland</span><svg width="18" height="18" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        </ul>
+      </div>
+
+      <!-- CAPACITY -->
+      <div class="fsub fsub--capacity" aria-hidden="true" data-panel="capacity">
+        <div class="fsub__head">
+          <div class="fsub__title">Capacity</div>
+          <button class="fsub__back" type="button" aria-label="Back">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <ul class="fchecks">
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="elopement"><span class="box"></span><span class="label">Elopement (2–20)</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="intimate"><span class="box"></span><span class="label">Intimate (20–40)</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="simple"><span class="box"></span><span class="label">Simple (40–60)</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="party"><span class="box"></span><span class="label">Party (60–150)</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="grand"><span class="box"></span><span class="label">Grand (150–300)</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="capacity[]" value="epic"><span class="box"></span><span class="label">Epic (300+)</span></label></li>
+        </ul>
+      </div>
+
+      <!-- VENUE TYPE -->
+      <div class="fsub fsub--venue-type" aria-hidden="true" data-panel="venue-type">
+        <div class="fsub__head">
+          <div class="fsub__title">Venue Type</div>
+          <button class="fsub__back" type="button" aria-label="Back">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <ul class="fchecks">
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="bar"><span class="box"></span><span class="label">Bar / Pub / Restaurant</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="barn"><span class="box"></span><span class="label">Barn</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="beach"><span class="box"></span><span class="label">Beach</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="castle"><span class="box"></span><span class="label">Castle</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="church"><span class="box"></span><span class="label">Church Onsite</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="country-house"><span class="box"></span><span class="label">Country House</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="creative"><span class="box"></span><span class="label">Creative Space</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="eco"><span class="box"></span><span class="label">Eco</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="elopement"><span class="box"></span><span class="label">Elopement Specialist</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="festival"><span class="box"></span><span class="label">Festival Wedding</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="venueType[]" value="garden"><span class="box"></span><span class="label">Garden</span></label></li>
+        </ul>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="fsub fsub--features" aria-hidden="true" data-panel="features">
+        <div class="fsub__head">
+          <div class="fsub__title">Features</div>
+          <button class="fsub__back" type="button" aria-label="Back">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="fsub__bar">
+          <label class="fsub__checkbox">
+            <input type="checkbox" id="match-all-features">
+            <span>Must match all features selected</span>
+          </label>
+        </div>
+
+        <ul class="fchecks">
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="accommodation"><span class="box"></span><span class="label">Accommodation Onsite</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="ceremonial-fire"><span class="box"></span><span class="label">Allows Ceremonial Fire</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="external-caterers"><span class="box"></span><span class="label">Allows External Caterers</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="fireworks"><span class="box"></span><span class="label">Allows Fireworks</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="street-food"><span class="box"></span><span class="label">Allows Street Food Vendors</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="changing-room"><span class="box"></span><span class="label">Changing Room</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="disabled"><span class="box"></span><span class="label">Disabled Facilities</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="dry-hire"><span class="box"></span><span class="label">Dry Hire Option</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="late-license"><span class="box"></span><span class="label">Late License</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="marquee"><span class="box"></span><span class="label">Marquee or Tipi</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="no-corkage"><span class="box"></span><span class="label">No Corkage</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="features[]" value="no-curfew"><span class="box"></span><span class="label">No Curfew</span></label></li>
+        </ul>
+      </div>
+
+      <!-- WEDDING STYLE -->
+      <div class="fsub fsub--wedding-style" aria-hidden="true" data-panel="wedding-style">
+        <div class="fsub__head">
+          <div class="fsub__title">Wedding Style</div>
+          <button class="fsub__back" type="button" aria-label="Back">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <ul class="fchecks">
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="rustic-romance"><span class="box"></span><span class="label">Rustic Romance</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="classic-elegance"><span class="box"></span><span class="label">Classic Elegance</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="coastal-cool"><span class="box"></span><span class="label">Coastal Cool</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="bohemian-beats"><span class="box"></span><span class="label">Bohemian Beats</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="city-chic"><span class="box"></span><span class="label">City Chic</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="modern-vintage"><span class="box"></span><span class="label">Modern Vintage</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="delicious-destination"><span class="box"></span><span class="label">Delicious Destination</span></label></li>
+          <li><label class="fcheck"><input type="checkbox" name="style[]" value="luxe-edit"><span class="box"></span><span class="label">The Luxe Edit</span></label></li>
+        </ul>
+      </div>
+
+      <!-- ========= /SUBPANELS ========= -->
+    </aside>
+  </div>
+
+</body>
+</html>
